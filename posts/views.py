@@ -1,8 +1,9 @@
 from django.db.models import Count
-from rest_framework import generics, filters
+from rest_framework import generics, permissions, filters
 from job_API.permissions import IsOwnerOrReadOnly
 from .models import Post
 from .serializers import PostSerializer
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class PostList(generics.ListAPIView):
@@ -15,13 +16,18 @@ class PostList(generics.ListAPIView):
         comments_count = Count('comment', distinct=True)
     ).order_by('-created_at')
     filter_backends = [
-        filters.OrderingFilter
+        filters.OrderingFilter,
+        filters.SearchFilter,
+        DjangoFilterBackend
+
     ]
     ordering_fields = [
         'likes_count',
         'comments_count',
         'likes_created_at'
     ]
+    search_fields = ['owner_username', 'title']
+    filterset_fields = ['owner__profile', 'owner__followed__owner__profile', 'likes__owner__profile']
     serializer_class = PostSerializer
 
 
