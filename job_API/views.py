@@ -5,9 +5,12 @@ from .settings import (
     JWT_AUTH_SECURE,
 )
 
+
 @api_view()
 def root_route(request):
-    return Response({"message": "Welcome to my django rest framework API!"})
+    return Response({
+        "message": "Welcome to my drf API!"
+    })
 
 
 # dj-rest-auth logout view fix
