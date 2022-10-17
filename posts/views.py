@@ -19,7 +19,6 @@ class PostList(generics.ListCreateAPIView):
         filters.OrderingFilter,
         filters.SearchFilter,
         DjangoFilterBackend
-
     ]
     ordering_fields = [
         'likes_count',
