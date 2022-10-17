@@ -6,7 +6,7 @@ from .serializers import PostSerializer
 from django_filters.rest_framework import DjangoFilterBackend
 
 
-class PostList(generics.ListAPIView):
+class PostList(generics.ListCreateAPIView):
     """
     List all profiles.
     No create view as profile creation is handled by django signals.
