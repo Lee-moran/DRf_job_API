@@ -40,6 +40,7 @@ if "DEV" not in os.environ:
     ]
 
 
+
 REST_USE_JWT = True
 JWT_AUTH_SECURE = True
 JWT_AUTH_COOKIE = 'my-app-auth'

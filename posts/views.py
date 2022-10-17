@@ -30,6 +30,9 @@ class PostList(generics.ListCreateAPIView):
     filterset_fields = ['owner__profile', 'owner__followed__owner__profile', 'likes__owner__profile']
     serializer_class = PostSerializer
 
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
 
 class PostDetail(generics.RetrieveUpdateAPIView):
     """

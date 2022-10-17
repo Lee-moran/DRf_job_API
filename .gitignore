@@ -11,3 +11,4 @@ node_modules/
 !**/migrations
 !**/migrations/__init__.py
 db.sqlite3
+mysite.log
