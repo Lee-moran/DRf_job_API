@@ -18,7 +18,7 @@ class PostList(generics.ListCreateAPIView):
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
-        DjangoFilterBackend
+        DjangoFilterBackend,
     ]
     ordering_fields = [
         'likes_count',
