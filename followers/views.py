@@ -3,14 +3,16 @@ from job_API.permissions import IsOwnerOrReadOnly
 from .models import Follower
 from .serializers import FollowerSerializer
 
-
 class FollowerList(generics.ListCreateAPIView):
     """
-    Follower likes or create a like if logged in.
+    List all followers, i.e. all instances of a user
+    following another user'.
+    Create a follower, i.e. follow a user if logged in.
+    Perform_create: associate the current logged in user with a follower.
     """
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    serializer_class = FollowerSerializer
     queryset = Follower.objects.all()
+    serializer_class = FollowerSerializer
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
@@ -18,8 +20,10 @@ class FollowerList(generics.ListCreateAPIView):
 
 class FollowerDetail(generics.RetrieveDestroyAPIView):
     """
-    Retrieve a follow or  it by id if you own it.
+    Retrieve a follower
+    No Update view, as we either follow or unfollow users
+    Destroy a follower, i.e. unfollow someone if owner
     """
     permission_classes = [IsOwnerOrReadOnly]
-    serializer_class = FollowerSerializer
     queryset = Follower.objects.all()
+    serializer_class = FollowerSerializer

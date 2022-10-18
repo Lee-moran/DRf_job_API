@@ -32,11 +32,10 @@ class PostSerializer(serializers.ModelSerializer):
         user = self.context['request'].user
         if user.is_authenticated:
             like = Like.objects.filter(
-                owner = user, post = obj
+                owner=user, post=obj
             ).first()
             return like.id if like else None
         return None
-
 
     class Meta:
         model = Post
@@ -44,5 +43,5 @@ class PostSerializer(serializers.ModelSerializer):
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
             'title', 'content', 'image', 'image_filter',
-            'like_id', 'likes_count', 'comments_count'
+            'like_id', 'likes_count', 'comments_count',
         ]
