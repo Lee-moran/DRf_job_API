@@ -11,6 +11,7 @@ class PostList(generics.ListCreateAPIView):
     List all profiles.
     No create view as profile creation is handled by django signals.
     """
+    serializer_class = PostSerializer
     queryset = Post.objects.annotate(
         likes_count = Count('likes', distinct=True),
         comments_count = Count('comment', distinct=True)
@@ -25,9 +26,16 @@ class PostList(generics.ListCreateAPIView):
         'comments_count',
         'likes_created_at'
     ]
-    search_fields = ['owner_username', 'title']
-    filterset_fields = ['owner__profile', 'owner__followed__owner__profile', 'likes__owner__profile']
-    serializer_class = PostSerializer
+    search_fields = [
+        'owner_username', 
+        'title',
+    ]
+    filterset_fields = [
+        'owner__profile', 
+        'owner__followed__owner__profile', 
+        'likes__owner__profile',
+    ]
+   
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
