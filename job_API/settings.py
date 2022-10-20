@@ -77,6 +77,12 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
     CORS_ALLOWED_ORIGIN_REGEXES = [
         rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
+    print("Logging ALLOWED CORS")
+    print(CORS_ALLOWED_ORIGIN_REGEXES)
+    print(CORS_ALLOWED_ORIGINS)
+    
+
+    
 
 CORS_ALLOW_CREDENTIALS = True
 
