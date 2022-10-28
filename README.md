@@ -1,6 +1,6 @@
 ## Introduction
 
-Job api is a website for use by professionals and those looking to find and seek more tip, jobs and more. 
+Job api is a website for those seeking emplyment, looking to learn from professionals and those looking to find and seek more tip, jobs and more. 
 
 This repository is the backend of the application using the Django REST Framework(DRF) holding the API database for the front end part of the application.
 
@@ -410,6 +410,8 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
 ```
 6. Save files, add, commit and push to Github
 7. In **Heroku** manually deploy the project again.
+
+
 
 ## Credits
 - The code institute walkthrough DRF_API project was used for set up and guide me through this project, code is credited with modifications made to suit my project, with additional models, serializers and views being made for achievements app
