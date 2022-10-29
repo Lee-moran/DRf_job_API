@@ -4,10 +4,24 @@ Job api is a website for those seeking emplyment, looking to learn from professi
 
 This repository is the backend of the application using the Django REST Framework(DRF) holding the API database for the front end part of the application.
 
+## Live sites
+
+[Heroku Backend](https://job-api-drf.herokuapp.com/)
+[GitHub Backtend](https://github.com/Lee-moran/DRf_job_API)
+[Deployed Frontend](https://finder-job.herokuapp.com/) 
+[GitHub Frontend](https://github.com/Lee-moran/job_finder)
+
+
+# Wirerframe 
+
+<img width="631" alt="BACKEND" src="https://user-images.githubusercontent.com/92300148/198683190-6876545c-6752-488c-99dd-a6ac45e20303.png">
+
+[live link](https://lucid.app/lucidchart/6c23fec9-7dc7-4c72-bf91-2ce146a64904/edit?viewport_loc=-668%2C-498%2C3306%2C1737%2C0_0&invitationId=inv_03e9cd56-0bcd-4dbe-b3fd-c30fda6be256)
+
 
 ## Testing
 
-- *Unit testing*, *Validator testing*, and *Manual testing* can all be found
+- *Manual testing* 
 
 
 ## Technologies Used
@@ -411,10 +425,15 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
 6. Save files, add, commit and push to Github
 7. In **Heroku** manually deploy the project again.
 
-
+## Issues
+Had an issue with deployment. Had company and occupation in my profile model at one point,
+and it got migrated. Had to create a new DATABASE in setting.py Job_API.
+First I had to check to make sure that the current migrations did not conflict with other apps and migrations
+then I had to remove them, and redo the migrations using zero to reset the profiles app.
 
 ## Credits
 - The code institute walkthrough DRF_API project was used for set up and guide me through this project, code is credited with modifications made to suit my project, with additional models, serializers and views being made for achievements app
 
 ## Acknowledgements
 - Code institute for a walkthrough project so I could gain my confidence and then progress on my own
+- Tutor Support
